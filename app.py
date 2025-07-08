@@ -7,6 +7,12 @@ from typing import List, Tuple, Optional
 
 from utils import resume_data, output_predict
 from utils.parser import extract_skills_from_text
+import nltk
+for resource in ["punkt", "stopwords"]:
+    try:
+        nltk.data.find(f"tokenizers/{resource}" if resource == "punkt" else f"corpora/{resource}")
+    except LookupError:
+        nltk.download(resource)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
