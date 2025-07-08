@@ -1,0 +1,16 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+ipykernel
+datasets
+pyresparser
+streamlit
+nltk
+PyMuPDF
+keras
+tensorflow
+gensim
+spacy
+pypdf
+plotly
