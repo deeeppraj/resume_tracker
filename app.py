@@ -8,11 +8,20 @@ from typing import List, Tuple, Optional
 from utils import resume_data, output_predict
 from utils.parser import extract_skills_from_text
 import nltk
-for resource in ["punkt", "stopwords"]:
+import os
+
+# Set NLTK data path to a known directory
+nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
+os.makedirs(nltk_data_dir, exist_ok=True)
+nltk.data.path.append(nltk_data_dir)
+
+# Download required corpora
+for res, path in [('punkt', 'tokenizers/punkt'), ('stopwords', 'corpora/stopwords')]:
     try:
-        nltk.data.find(f"tokenizers/{resource}" if resource == "punkt" else f"corpora/{resource}")
+        nltk.data.find(path)
     except LookupError:
-        nltk.download(resource)
+        nltk.download(res, download_dir=nltk_data_dir)
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
