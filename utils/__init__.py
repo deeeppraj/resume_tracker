@@ -15,9 +15,9 @@ stop = stopwords.words('english')
 
 
 
-MODEL_PATH = r'Artifacts\model.pkl'
+MODEL_PATH = os.path.join("Artifacts", "model.pkl")
 PREPROCESSOR_PATH = os.path.join("Artifacts", "preprocessor.pkl")
-DECODEER_PATH = r'Artifacts\decoder.pkl'
+DECODEER_PATH = os.path.join("Artifacts", "decoder.pkl")
 
 lematizer = WordNetLemmatizer()
 
