@@ -11,17 +11,10 @@ import nltk
 import os
 
 # Set NLTK data path to a known directory
-nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
-os.makedirs(nltk_data_dir, exist_ok=True)
-nltk.data.path.append(nltk_data_dir)
 nltk.download('punkt_tab')
+nltk.download('wordnet')
 
-# Download required corpora
-for res, path in [('punkt', 'tokenizers/punkt'), ('stopwords', 'corpora/stopwords')]:
-    try:
-        nltk.data.find(path)
-    except LookupError:
-        nltk.download(res, download_dir=nltk_data_dir)
+
 
 
 # Configure logging
